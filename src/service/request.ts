@@ -1,24 +1,6 @@
 import { WORD_ES } from "./words";
 
-import { usePapaParse } from 'react-papaparse';
-import fs from 'fs';
-
-
-
-
 function getWords() {
-  const { readRemoteFile } = usePapaParse();
-
-  readRemoteFile('./word.es.csv', {
-  complete: (results) => {
-    console.log('---------------------------');
-    console.log('Results:', results);
-    console.log('---------------------------');
-  },
-  download: true
-});
-
-
   return WORD_ES;
 }
 
@@ -38,7 +20,7 @@ export async function isValidWord(word: string) {
 
     return json.length;
     */
-   return true;
+    return true;
   } catch (e) {
     console.log(e);
     return false;
