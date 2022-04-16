@@ -6,7 +6,9 @@ function getWords() {
 
 export function getWordOfTheDay() {
   const words = getWords();
-  const wordOfTheDay = words[getDayOfTheYear()];
+ // const wordOfTheDay = words[getDayOfTheYear()];
+  const wordOfTheDay = words[ randomNumber(0, words.length) ];
+ // console.log(wordOfTheDay);
   return wordOfTheDay.toUpperCase();
 }
 
@@ -39,4 +41,9 @@ function getDayOfTheYear() {
     (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000;
   const oneDay = 1000 * 60 * 60 * 24;
   return Math.floor(diff / oneDay);
+}
+
+function randomNumber(min: number, max: number){
+  const r = Math.random()*(max-min) + min
+  return Math.floor(r)
 }
